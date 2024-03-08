@@ -44,7 +44,7 @@ export const PerfectCarousel = () => {
   };
 
   return (
-    <div
+    <section
       ref={refSection}
       className={cls.carouselContainer}
       onMouseMove={(e: React.MouseEvent<HTMLImageElement, MouseEvent>) => handlerMouseParallax(e)}
@@ -89,6 +89,6 @@ export const PerfectCarousel = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
