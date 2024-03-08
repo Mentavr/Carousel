@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    position: relative;
+    max-width: 280px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5%;
+    transition: 0.3s all ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.363);
+    transition: 0.3s all ease-in-out;
+}
+
+.img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300%;
+    transition: 0.3s all ease-in-out;
+}
+
+.img:hover {
+    width: 310%;
+    transition: 0.3s all ease-in-out;
+}
+.animation:nth-child(n+2) {
+    opacity: 0;
+}
+
+.animation:first-child {
+    animation-name: animationCard;
+    position: absolute;
+    animation-duration: 2s;
+    transition: 0.3s all ease-in-out;
+}
+
+
+@keyframes animationCard {
+    from {
+        top: 0;
+        left: 46%;
+    }
+
+    50% {
+        left: 42%;
+        top: 15%;
+    }
+
+    to  {
+        left: 42%;
+        top: 15%;
+    }
+}

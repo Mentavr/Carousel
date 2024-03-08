@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'MoonBold';
+    src: local('MoonBold'), url('./MoonBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MoonLight';
+    src: local('MoonLight'), url('./MoonLight.otf') format('truetype');
+}
+
+
+:root {
+    --font-family-moon-bold: 'MoonLight';
+    --font-family-moon-light: 'MoonBold';
+}
