@@ -1,1 +1,1 @@
-export { Carousel } from "./carousel/Carousel";
+export { RenderImg } from "./RenderImg/RenderImg";

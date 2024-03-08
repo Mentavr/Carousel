@@ -1,5 +1,5 @@
 import cls from './style.module.css';
-import { Carousel } from '../../../components';
+import { RenderImg } from '../../../components';
 import { ImgData } from '../../../utils/data/ImgData';
 import { useRef, useState } from 'react';
 import clsx from 'clsx';
@@ -17,7 +17,7 @@ export const PerfectCarousel = () => {
   const ref = useRef<HTMLImageElement>(null);
   const refSection = useRef<HTMLImageElement>(null);
 
-  const handlerNext = () => {
+  const handlerOpen = () => {
     setTimeout(() => {
       setActiveAnimation(true);
       setTimeout(() => {
@@ -67,7 +67,7 @@ export const PerfectCarousel = () => {
             <div className={clsx(cls.img)}>
               {filterData.map(({ id, img }) => {
                 return (
-                  <Carousel
+                  <RenderImg
                     id={id}
                     img={img}
                     key={id}
@@ -82,7 +82,7 @@ export const PerfectCarousel = () => {
           <div className={cls.buttonsWrapper}>
             <button
               className={clsx(cls.button, cls.next)}
-              onClick={handlerNext}
+              onClick={handlerOpen}
               type='button'
               disabled={activeAnimation}
             ></button>
