@@ -32,6 +32,9 @@
 .backgroundImgContainer{
     width: 100%;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .backgroundImg{
@@ -75,31 +78,29 @@
     background-color: white;
     opacity: 0.5;
     box-shadow: none;
+    cursor: pointer;
 }
 
 .next::before{
     position: absolute;
-    content: '';
+    content: 'O';
     top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%)  rotate(-45deg);
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    width: 15px;
-    height: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 40px;
 }
 
-.prev::before{
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%)  rotate(135deg);
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    width: 15px;
-    height: 15px;
+.next:hover::before{
+   content: 'O';
+   font-size: 50px;
+   color: red;
 }
+
+.next:active::before{
+    content: 'O';
+    font-size: 0px;
+ }
 
 
 .animImg{position: absolute;

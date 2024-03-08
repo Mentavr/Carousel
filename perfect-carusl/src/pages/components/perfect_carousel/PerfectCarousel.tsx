@@ -1,7 +1,7 @@
 import cls from './style.module.css';
 import { Carousel } from '../../../components';
 import { ImgData } from '../../../utils/data/ImgData';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import clsx from 'clsx';
 
 export const PerfectCarousel = () => {
@@ -14,22 +14,8 @@ export const PerfectCarousel = () => {
   const thirdImg = ImgData[activeImg + 2] ? activeImg + 2 : activeImg + 2 - ImgData.length;
   const filterData = [ImgData[firstImg], ImgData[secondImg], ImgData[thirdImg]];
 
-  const handlerPrev = () => {
-    setTimeout(() => {
-      setActiveAnimation(true);
-      setTimeout(() => {
-        setTimeout(() => {
-          setActiveAnimation(false);
-          if (activeImg === 0) {
-            setActiveBackground(ImgData[ImgData.length - 1].img);
-            return setActiveImg(ImgData.length - 1);
-          }
-          setActiveBackground(ImgData[activeImg - 1].img);
-          return setActiveImg(activeImg - 1);
-        }, 0);
-      }, 1900);
-    }, 100);
-  };
+  const ref = useRef<HTMLImageElement>(null);
+  const refSection = useRef<HTMLImageElement>(null);
 
   const handlerNext = () => {
     setTimeout(() => {
@@ -48,9 +34,22 @@ export const PerfectCarousel = () => {
     }, 100);
   };
 
+  const handlerMouseParallax = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    if (!ref.current || !refSection.current) return;
+    const x = (e.clientX / refSection.current.clientWidth) * 2;
+    const y = (e.clientY / refSection.current.clientHeight) * 2;
+    ref.current.style.top = '0';
+    ref.current.style.left = '0';
+    ref.current.style.transform = `translateX(-${x}%) translateY(-${y}%)`;
+  };
+
   return (
-    <div className={cls.carouselContainer}>
-      <div className={cls.backgroundImgContainer}>
+    <div
+      ref={refSection}
+      className={cls.carouselContainer}
+      onMouseMove={(e: React.MouseEvent<HTMLImageElement, MouseEvent>) => handlerMouseParallax(e)}
+    >
+      <div ref={ref} className={cls.backgroundImgContainer}>
         <img className={cls.backgroundImg} src={activeBackground} alt='Картинка заднего фона' />
       </div>
       <img
@@ -81,12 +80,6 @@ export const PerfectCarousel = () => {
             </div>
           </div>
           <div className={cls.buttonsWrapper}>
-            <button
-              className={clsx(cls.button, cls.prev)}
-              onClick={handlerPrev}
-              type='button'
-              disabled={activeAnimation}
-            ></button>
             <button
               className={clsx(cls.button, cls.next)}
               onClick={handlerNext}
