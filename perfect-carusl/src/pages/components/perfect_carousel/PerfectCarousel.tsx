@@ -78,6 +78,22 @@ export const PerfectCarousel = () => {
                 );
               })}
             </div>
+            {/* <div className={clsx(cls.a)}>
+              <div className={cls.b}>
+              {ImgData .map(({ id, img }) => {
+                return (
+                  <RenderImg
+                    id={id}
+                    img={img}
+                    key={id}
+                    activeImg={activeImg}
+                    setActiveImg={setActiveImg}
+                    activeAnimation={activeAnimation}
+                  />
+                );
+              })}
+              </div>
+            </div> */}
           </div>
           <div className={cls.buttonsWrapper}>
             <button

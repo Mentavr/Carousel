@@ -1,18 +1,18 @@
-.text{
+.text {
     color: rgb(0, 0, 0);
     font-size: 24px;
     font-weight: 600;
     font-family: var(--font-family-moon-bold);
 }
 
-.title{
+.title {
     color: rgb(0, 0, 0);
     font-size: 30px;
     font-weight: 600;
     font-family: var(--font-family-moon-bold);
 }
 
-.carouselContainer{
+.carouselContainer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -21,14 +21,14 @@
     padding: 100px 0 100px 0;
 }
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     gap: 250px;
     width: 100%;
 }
 
-.backgroundImgContainer{
+.backgroundImgContainer {
     width: 100%;
     position: absolute;
     top: 50%;
@@ -37,7 +37,7 @@
     object-fit: contain;
 }
 
-.backgroundImg{
+.backgroundImg {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
@@ -45,7 +45,7 @@
 }
 
 
-.carouselWrapper{
+.carouselWrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -53,18 +53,20 @@
     gap: 40px;
 }
 
-.img{
+.img {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     gap: 40px;
     width: 100%;
+    min-height: 400px;
 }
 
-.buttonsWrapper{
+.buttonsWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap:30px;
+    gap: 30px;
 }
 
 .button {
@@ -81,7 +83,7 @@
     cursor: pointer;
 }
 
-.next::before{
+.next::before {
     position: absolute;
     content: 'O';
     top: 50%;
@@ -91,42 +93,43 @@
     font-size: 40px;
 }
 
-.next:hover::before{
-   content: 'O';
-   font-size: 50px;
-   color: red;
+.next:hover::before {
+    content: 'O';
+    font-size: 50px;
+    color: red;
 }
 
-.next:active::before{
+.next:active::before {
     content: 'O';
     font-size: 0px;
- }
+}
 
 
-.animImg{position: absolute;
+.animImg {
+    position: absolute;
     max-width: 0;
     min-height: 0;
     z-index: 1;
     border-radius: 5%;
-    top:49.6%;
+    top: 49.6%;
     left: 51.4%;
     transform: translate(-50%, -50%);
 }
 
 .secondBackgroundImgAnimation {
     z-index: 0;
-    animation-name:  animationImg;
+    animation-name: animationImg;
     animation-duration: 2s;
 }
 
-.textWrapper{
+.textWrapper {
     width: 40%;
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.068);
     transition: 0.5s all ease-in-out;
 }
 
-.textWrapperAnimation{
+.textWrapperAnimation {
     opacity: 0;
     transition: 0.5s all ease-in-out;
 }
@@ -139,15 +142,15 @@
     }
 
     to {
-       width: 103%;
-       max-width: 103%;
+        width: 103%;
+        max-width: 103%;
     }
 }
 
 @keyframes animationText {
 
     from {
-      width: 20%;
+        width: 20%;
     }
 
     to {
